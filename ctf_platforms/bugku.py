@@ -1,5 +1,6 @@
 from .abstract_platform import AbstractPlatform
 from bs4 import BeautifulSoup as bs
+from .util import string_to_timestamp
 
 
 class BugKu(AbstractPlatform):
@@ -18,7 +19,7 @@ class BugKu(AbstractPlatform):
                 "link": self.base_url + solve[1].find("a").get("href"),
                 "category": solve[2].find("span").text,
                 "point": solve[3].text,
-                "time": solve[5].text,
+                "time": string_to_timestamp(solve[5].text),
             }
             for solve in solves
         ]

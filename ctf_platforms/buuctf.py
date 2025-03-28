@@ -1,5 +1,5 @@
 from .abstract_platform import AbstractPlatform
-from .util import extract_between
+from .util import extract_between, iso_to_timestamp
 from bs4 import BeautifulSoup as bs
 
 
@@ -33,8 +33,10 @@ class BUUCTF(AbstractPlatform):
                 else self.base_url,
                 "category": solve[1].text,
                 "point": solve[2].text,
-                "time": extract_between(
-                    solve[3].find("script").text, 'moment("', '").local'
+                "time": iso_to_timestamp(
+                    extract_between(
+                        solve[3].find("script").text, 'moment("', '").local'
+                    )
                 ),
             }
             for solve in solves
