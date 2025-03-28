@@ -19,6 +19,7 @@
               pip
               ruff
               pyright
+              sqlite
               venvShellHook
             ]);
         };
