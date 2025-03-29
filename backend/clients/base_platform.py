@@ -4,7 +4,7 @@ from http.cookies import SimpleCookie
 
 
 class BasePlatform(ABC):
-    base_url = ""
+    base_url: str = ""
 
     def __init__(self, cookies: str = ""):
         self.session = httpx.Client()
