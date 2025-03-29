@@ -3,7 +3,7 @@ import httpx
 from http.cookies import SimpleCookie
 
 
-class AbstractPlatform(ABC):
+class BasePlatform(ABC):
     base_url = ""
 
     def __init__(self, cookies: str = ""):

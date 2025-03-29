@@ -1,9 +1,9 @@
-from .abstract_platform import AbstractPlatform
+from .base_platform import BasePlatform
 from bs4 import BeautifulSoup as bs
 from .util import string_to_timestamp
 
 
-class BugKu(AbstractPlatform):
+class BugKu(BasePlatform):
     base_url = "https://ctf.bugku.com"
 
     def get_user_solves(self, user: str) -> list | None:

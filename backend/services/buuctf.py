@@ -1,9 +1,9 @@
-from .abstract_platform import AbstractPlatform
+from .base_platform import BasePlatform
 from .util import extract_between, iso_to_timestamp
 from bs4 import BeautifulSoup as bs
 
 
-class BUUCTF(AbstractPlatform):
+class BUUCTF(BasePlatform):
     base_url = "https://buuoj.cn"
 
     def get_user_path(self, user: str) -> str | None:
