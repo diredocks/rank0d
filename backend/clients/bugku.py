@@ -9,7 +9,7 @@ class BugKu(BasePlatform):
     def get_user_solves(self, user: str) -> list | None:
         resp = self.session.get(f"{self.base_url}/user/info/id/{user}.html")
         soup = bs(resp.text, "lxml")
-        elem = soup.select(".table tbody tr")
+        elem = soup.select("#info .table tbody tr")
         return [each.find_all("td") for each in elem]
 
     def parse_user_solves(self, solves: list) -> list[dict]:
